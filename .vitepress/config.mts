@@ -18,7 +18,8 @@ export default defineConfig({
         {
           text: '博客',
           items: [
-            { text: 'Day One', link: '/blog/01-day-one' }
+            { text: 'Day One', link: '/blog/01-day-one' },
+            { text: 'Week 1 — 从零到一', link: '/blog/02-week-1' }
           ]
         }
       ],
