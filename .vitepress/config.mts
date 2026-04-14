@@ -1,6 +1,14 @@
 import { defineConfig } from 'vitepress'
 
 export default defineConfig({
+  head: [
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX' }],
+    ['script', {}, `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-XXXXXXXXXX');`]
+  ],
+
   title: 'Marvis 手记',
   description: '马启航的知识库与博客',
   lang: 'zh-CN',
