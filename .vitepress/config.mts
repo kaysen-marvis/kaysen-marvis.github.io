@@ -26,8 +26,9 @@ gtag('config', 'G-58WHV6DMEQ');`]
         {
           text: '博客',
           items: [
-            { text: 'Day One', link: '/blog/01-day-one' },
-            { text: 'Week 1 — 从零到一', link: '/blog/02-week-1' }
+            { text: '日记 2026.04.14', link: '/blog/diary-2026-04-14' },
+            { text: 'Week 1 — 从零到一', link: '/blog/02-week-1' },
+            { text: 'Day One', link: '/blog/01-day-one' }
           ]
         }
       ],
