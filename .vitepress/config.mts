@@ -2,11 +2,11 @@ import { defineConfig } from 'vitepress'
 
 export default defineConfig({
   head: [
-    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX' }],
+    ['script', { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-58WHV6DMEQ' }],
     ['script', {}, `window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
-gtag('config', 'G-XXXXXXXXXX');`]
+gtag('config', 'G-58WHV6DMEQ');`]
   ],
 
   title: 'Marvis 手记',
