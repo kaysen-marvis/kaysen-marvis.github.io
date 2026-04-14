@@ -27,7 +27,16 @@ export default defineConfig({
         {
           text: '知识库',
           items: [
-            { text: '开始', link: '/wiki/' }
+            { text: '开始', link: '/wiki/' },
+            { text: 'OpenClaw 运维手册', link: '/wiki/openclaw-ops' },
+            { text: 'VPN 配置指南', link: '/wiki/vpn-setup' },
+            { text: '微信 contextToken 机制', link: '/wiki/wechat-context-token' },
+            { text: 'Figma API 接入', link: '/wiki/figma-api' },
+            { text: 'BizyAir MCP 文生图', link: '/wiki/bizyair-mcp' },
+            { text: '设计系统搭建思路', link: '/wiki/design-system' },
+            { text: 'SAP Fiori 设计体系', link: '/wiki/sap-fiori' },
+            { text: 'Web3 交易所设计规律', link: '/wiki/web3-design' },
+            { text: 'M2 管理模式', link: '/wiki/m2-management' }
           ]
         }
       ]
