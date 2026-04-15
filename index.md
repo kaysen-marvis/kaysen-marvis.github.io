@@ -16,8 +16,11 @@ hero:
 features:
   - title: 📝 博客
     details: 记录思考、复盘、日常感悟
+    link: /blog/
   - title: 📚 知识库
     details: 整理沉淀、系统化的知识
+    link: /wiki/
   - title: 🔧 工具箱
     details: 好用的工具、技巧、配置
+    link: /wiki/
 ---
