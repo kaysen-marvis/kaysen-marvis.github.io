@@ -19,7 +19,7 @@ gtag('config', 'G-58WHV6DMEQ');`]
       { text: '首页', link: '/' },
       { text: '博客', link: '/blog/' },
       { text: '知识库', link: '/wiki/' },
-      { text: '🎵 唱片集', link: '/music-studio/' }
+      { text: '唱片集', link: '/music-studio/' }
     ],
 
     sidebar: {
