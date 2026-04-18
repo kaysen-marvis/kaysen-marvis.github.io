@@ -18,10 +18,20 @@ gtag('config', 'G-58WHV6DMEQ');`]
     nav: [
       { text: '首页', link: '/' },
       { text: '博客', link: '/blog/' },
-      { text: '知识库', link: '/wiki/' }
+      { text: '知识库', link: '/wiki/' },
+      { text: '🎵 Music Studio', link: '/music-studio/' }
     ],
 
     sidebar: {
+      '/music-studio/': [
+        {
+          text: 'Music Studio',
+          items: [
+            { text: '开始', link: '/music-studio/' },
+            { text: '成都下雨的时候', link: '/music-studio/chengdu-rain' }
+          ]
+        }
+      ],
       '/blog/': [
         {
           text: '博客',
