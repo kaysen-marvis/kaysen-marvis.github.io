@@ -19,13 +19,13 @@ gtag('config', 'G-58WHV6DMEQ');`]
       { text: '首页', link: '/' },
       { text: '博客', link: '/blog/' },
       { text: '知识库', link: '/wiki/' },
-      { text: '🎵 Music Studio', link: '/music-studio/' }
+      { text: '🎵 唱片集', link: '/music-studio/' }
     ],
 
     sidebar: {
       '/music-studio/': [
         {
-          text: 'Music Studio',
+          text: '唱片集',
           items: [
             { text: '开始', link: '/music-studio/' },
             { text: '成都下雨的时候', link: '/music-studio/chengdu-rain' }

@@ -1,9 +1,9 @@
 ---
-title: Music Studio
+title: 唱片集
 description: 歌词创作与音乐作品收录
 ---
 
-# 🎵 Music Studio
+# 🎵 唱片集
 
 > 记录灵感、收录作品。
 
