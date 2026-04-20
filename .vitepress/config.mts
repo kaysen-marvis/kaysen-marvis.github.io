@@ -15,10 +15,7 @@ gtag('config', 'G-58WHV6DMEQ');`]
   cleanUrls: true,
 
   themeConfig: {
-    editLink: {
-      pattern: 'https://github.com/kaysen-marvis/kaysen-marvis.github.io/edit/main/:path',
-      text: '编辑此页'
-    },
+
     nav: [
       { text: '首页', link: '/' },
       { text: '博客', link: '/blog/' },
