@@ -40,6 +40,10 @@ gtag('config', 'G-58WHV6DMEQ');`]
         {
           text: '博客',
           items: [
+            { text: '日记 2026.04.20', link: '/blog/diary-2026-04-20' },
+            { text: '日记 2026.04.18', link: '/blog/diary-2026-04-18' },
+            { text: '日记 2026.04.17', link: '/blog/diary-2026-04-17' },
+            { text: '日记 2026.04.16', link: '/blog/diary-2026-04-16' },
             { text: '日记 2026.04.15', link: '/blog/diary-2026-04-15' },
             { text: '日记 2026.04.14', link: '/blog/diary-2026-04-14' },
             { text: 'Week 1 — 从零到一', link: '/blog/02-week-1' },
