@@ -162,19 +162,74 @@ function startEdit(el: HTMLElement) {
       const filePath = getSourcePath()
       const { sha, content: fileContent } = await getFileSha(filePath, token)
 
-      // Replace the old text with new text in the file content
-      // We do a simple find-and-replace of the trimmed text
       const oldText = textContent.trim()
       const newTextTrimmed = newText.trim()
 
-      if (!fileContent.includes(oldText)) {
-        throw new Error('无法在源文件中定位该段落，请尝试整页编辑')
+      // 1. 先尝试精确匹配
+      if (fileContent.includes(oldText)) {
+        const updatedContent = fileContent.replace(oldText, newTextTrimmed)
+        await saveFile(filePath, updatedContent, sha, token)
+        status.textContent = '✅ 已保存，刷新中...'
+        setTimeout(() => location.reload(), 1000)
+        return
       }
 
-      const updatedContent = fileContent.replace(oldText, newTextTrimmed)
+      // 2. 去除 Markdown 标记后模糊匹配
+      const stripMd = (s: string) =>
+        s.replace(/[*_~`#>\[\]!]/g, '').replace(/\s+/g, ' ').trim()
+
+      const strippedOld = stripMd(oldText)
+      const lines = fileContent.split('\n')
+
+      // 找到最佳匹配的行范围（滑动窗口匹配多行段落）
+      let bestScore = 0
+      let bestStart = -1
+      let bestEnd = -1
+
+      // 单行匹配
+      for (let i = 0; i < lines.length; i++) {
+        const stripped = stripMd(lines[i])
+        if (!stripped) continue
+        // 计算包含率：strippedOld 中有多少词出现在 stripped 里
+        const words = strippedOld.split(' ').filter(Boolean)
+        if (!words.length) continue
+        const matched = words.filter(w => stripped.includes(w)).length
+        const score = matched / words.length
+        if (score > bestScore) {
+          bestScore = score
+          bestStart = i
+          bestEnd = i
+        }
+      }
+
+      // 多行窗口匹配（适用于段落跨行）
+      for (let size = 2; size <= 8; size++) {
+        for (let i = 0; i <= lines.length - size; i++) {
+          const chunk = lines.slice(i, i + size).join(' ')
+          const stripped = stripMd(chunk)
+          const words = strippedOld.split(' ').filter(Boolean)
+          if (!words.length) continue
+          const matched = words.filter(w => stripped.includes(w)).length
+          const score = matched / words.length
+          if (score > bestScore) {
+            bestScore = score
+            bestStart = i
+            bestEnd = i + size - 1
+          }
+        }
+      }
+
+      // 相似度需达到 60% 以上才替换
+      if (bestScore < 0.6 || bestStart === -1) {
+        throw new Error(`无法定位该段落（最佳匹配度 ${Math.round(bestScore * 100)}%），请手动编辑源文件`)
+      }
+
+      // 用新文本替换匹配到的行范围
+      lines.splice(bestStart, bestEnd - bestStart + 1, newTextTrimmed)
+      const updatedContent = lines.join('\n')
       await saveFile(filePath, updatedContent, sha, token)
 
-      status.textContent = '✅ 已保存，刷新中...'
+      status.textContent = `✅ 已保存（模糊匹配 ${Math.round(bestScore * 100)}%），刷新中...`
       setTimeout(() => location.reload(), 1000)
     } catch (err: any) {
       status.textContent = '❌ ' + err.message
