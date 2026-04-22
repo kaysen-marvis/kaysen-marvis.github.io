@@ -58,6 +58,7 @@ gtag('config', 'G-58WHV6DMEQ');`]
         {
           text: '博客',
           items: [
+            { text: '日记 2026.04.21', link: '/blog/diary-2026-04-21' },
             { text: '日记 2026.04.20', link: '/blog/diary-2026-04-20' },
             { text: '日记 2026.04.18', link: '/blog/diary-2026-04-18' },
             { text: '日记 2026.04.17', link: '/blog/diary-2026-04-17' },
